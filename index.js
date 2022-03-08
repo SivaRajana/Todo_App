@@ -18,22 +18,22 @@ let todoList = [
     },
 ]
 
+let todoItemContainer = document.getElementById("todoItemsContainer");
+
 function onTodoStatusChange(checkboxId, labelId){
     let checkBoxEl = document.getElementById(checkboxId);
-    console.log(checkBoxEl.checked);
-    if (checkBoxEl.checked === true){
-        document.getElementById(labelId).classList.add("checked");
-    }
-    else{
-        document.getElementById(labelId).classList.remove("checked");
-    }
+    document.getElementById(labelId).classList.toggle("checked");
+}
 
+function onDeleteElement(todoItemId){
+    let elementToDo = document.getElementById(todoItemId);
+    todoItemContainer.removeChild(elementToDo); 
 }
 
 function createTodoItem(todo){
-    let todoItemContainer = document.getElementById("todoItemsContainer");
 
     let todoElement = document.createElement("li");
+    todoElement.id = "todo" + todo.uniqueNo;
     todoElement.classList.add("todo-item-container", "d-flex","flex-row");
     todoItemContainer.appendChild(todoElement);
 
@@ -64,6 +64,9 @@ function createTodoItem(todo){
 
     let deletIconEl = document.createElement("i");
     deletIconEl.classList.add("far", "fa-trash-alt", "delete-icon");
+    deletIconEl.onclick = function () {
+        onDeleteElement("todo" + todo.uniqueNo);
+    }
     deletIconContainer.appendChild(deletIconEl);
 
 }
