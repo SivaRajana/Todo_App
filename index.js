@@ -19,6 +19,25 @@ let todoList = [
 ]
 
 let todoItemContainer = document.getElementById("todoItemsContainer");
+let addTaskButtonEl = document.getElementById("addTaskButton");
+
+addTaskButtonEl.onclick = function (){
+    let todoUserInputEl = document.getElementById("todoUserInput");
+    let inputGiven = todoUserInputEl.value;
+    if (inputGiven === ""){
+        alert("Enter Valid Input Buddy!!");
+        return;
+    }
+    let todoItemsCount = todoList.length;
+    let newTodoItem = {
+        text: inputGiven,
+        uniqueNo: todoItemsCount + 1,
+    }
+    createTodoItem(newTodoItem);
+    todoList.push(newTodoItem);
+    todoUserInputEl.value = "";
+}
+
 
 function onTodoStatusChange(checkboxId, labelId){
     let checkBoxEl = document.getElementById(checkboxId);
