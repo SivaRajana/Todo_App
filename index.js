@@ -33,7 +33,7 @@ function createTodoItem(todo){
 
     let labelElement = document.createElement("label");
     labelElement.classList.add("checkbox-label");
-    labelElement.setAttribute("for","checkbox1");
+    labelElement.setAttribute("for","checkbox");
     labelElement.textContent = todo.text;
     todoElementContainer.appendChild(labelElement)
 
