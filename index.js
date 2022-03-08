@@ -1,15 +1,20 @@
 let todoList = [
     {
-        text:"HTML"
+        text:"HTML",
+        uniqueNo: 1
     },
     {
-        text:"CSS"
+        text:"CSS",
+        uniqueNo:2
+
     },
     {
-        text:"BOOTSTRAP"
+        text:"BOOTSTRAP",
+        uniqueNo:3
     },
     {
-        text:"Javascript"
+        text:"Javascript",
+        uniqueNo:4
     },
 ]
 
@@ -21,9 +26,9 @@ function createTodoItem(todo){
     todoItemContainer.appendChild(todoElement);
 
 
-    let inputCheckBoxElemnt = document.createElement("input");
+    let inputCheckBoxElemnt = document.createElement("input"); 
     inputCheckBoxElemnt.classList.add("checkbox-input")
-    inputCheckBoxElemnt.setAttribute("id","checkbox");
+    inputCheckBoxElemnt.setAttribute("id","checkbox" + todo.uniqueNo);
     inputCheckBoxElemnt.type = "checkbox";
     todoElement.appendChild(inputCheckBoxElemnt);
 
@@ -33,7 +38,7 @@ function createTodoItem(todo){
 
     let labelElement = document.createElement("label");
     labelElement.classList.add("checkbox-label");
-    labelElement.setAttribute("for","checkbox");
+    labelElement.setAttribute("for","checkbox" + todo.uniqueNo);
     labelElement.textContent = todo.text;
     todoElementContainer.appendChild(labelElement)
 
