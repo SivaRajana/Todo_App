@@ -1,22 +1,11 @@
-let todoList = [
-    {
-        text:"HTML",
-        uniqueNo: 1
-    },
-    {
-        text:"CSS",
-        uniqueNo:2
-
-    },
-    {
-        text:"BOOTSTRAP",
-        uniqueNo:3
-    },
-    {
-        text:"Javascript",
-        uniqueNo:4
-    },
-]
+let dataFromStorage = localStorage.getItem("todoList");
+let todoList = [];
+if (dataFromStorage === null){
+    todoList = [];
+}
+else{
+    todoList = JSON.parse(dataFromStorage);
+}
 
 let todoItemContainer = document.getElementById("todoItemsContainer");
 let addTaskButtonEl = document.getElementById("addTaskButton");
@@ -47,6 +36,16 @@ function onTodoStatusChange(checkboxId, labelId){
 function onDeleteElement(todoItemId){
     let elementToDo = document.getElementById(todoItemId);
     todoItemContainer.removeChild(elementToDo); 
+
+    let deleteIndex = todoList.findIndex(function (eachTodoItem){
+        let eachTodoItemId = "todo" + eachTodoItem.uniqueNo;
+        if (todoItemId === eachTodoItemId){
+            return true;
+        }
+        return false;
+    })
+    todoList.splice(deleteIndex,1);
+
 }
 
 function createTodoItem(todo){
@@ -88,6 +87,13 @@ function createTodoItem(todo){
     }
     deletIconContainer.appendChild(deletIconEl);
 
+}
+
+let saveButtonEl = document.getElementById("saveButton");
+saveButtonEl.onclick = function (){
+    console.log(todoList);
+    let strigifiedTodoList = JSON.stringify(todoList);
+    localStorage.setItem("todoList",strigifiedTodoList);
 }
 
 for (let todo of todoList){
