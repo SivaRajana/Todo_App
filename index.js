@@ -21,6 +21,7 @@ addTaskButtonEl.onclick = function (){
     let newTodoItem = {
         text: inputGiven,
         uniqueNo: todoItemsCount + 1,
+        taskStatus: false
     }
     createTodoItem(newTodoItem);
     todoList.push(newTodoItem);
@@ -28,9 +29,19 @@ addTaskButtonEl.onclick = function (){
 }
 
 
-function onTodoStatusChange(checkboxId, labelId){
+function onTodoStatusChange(checkboxId, labelId,todoItemId){
     let checkBoxEl = document.getElementById(checkboxId);
-    document.getElementById(labelId).classList.toggle("checked");
+    let checkedTodoItemId = "todo"+todoItemId;
+    let labelElement = document.getElementById(labelId);
+    labelElement.classList.toggle("checked");
+    // console.log(checkboxId, labelId, todoItemId);
+    let checkedItemId = "todo"+todoItemId;
+    for (let eachItem of todoList){
+        let eachItemId = "todo"+eachItem.uniqueNo;
+        if (eachItemId === checkedItemId){
+            eachItem.taskStatus = eachItem.taskStatus ? false:true;
+        }
+    }
 }
 
 function onDeleteElement(todoItemId){
@@ -61,8 +72,9 @@ function createTodoItem(todo){
     inputCheckBoxElemnt.setAttribute("id","checkbox" + todo.uniqueNo);
     inputCheckBoxElemnt.type = "checkbox";
     inputCheckBoxElemnt.onclick = function (){
-        onTodoStatusChange(("checkbox" + todo.uniqueNo),("label" + todo.uniqueNo));
+        onTodoStatusChange(("checkbox" + todo.uniqueNo),("label" + todo.uniqueNo),todo.uniqueNo);
     }
+    inputCheckBoxElemnt.checked = todo.taskStatus;//important
     todoElement.appendChild(inputCheckBoxElemnt);
 
     let todoElementContainer = document.createElement("div")
@@ -74,6 +86,12 @@ function createTodoItem(todo){
     labelElement.setAttribute("for","checkbox" + todo.uniqueNo);
     labelElement.setAttribute("id","label" + todo.uniqueNo);
     labelElement.textContent = todo.text;
+    if (inputCheckBoxElemnt.checked){
+        labelElement.classList.add("checked");
+    }
+    else{
+        labelElement.classList.remove("checked");
+    }
     todoElementContainer.appendChild(labelElement)
 
     let deletIconContainer = document.createElement("div");
