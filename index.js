@@ -63,7 +63,7 @@ function createTodoItem(todo){
 
     let todoElement = document.createElement("li");
     todoElement.id = "todo" + todo.uniqueNo;
-    todoElement.classList.add("todo-item-container", "d-flex","flex-row");
+    todoElement.classList.add("todo-item-container","d-flex","flex-row");
     todoItemContainer.appendChild(todoElement);
 
 
@@ -78,7 +78,7 @@ function createTodoItem(todo){
     todoElement.appendChild(inputCheckBoxElemnt);
 
     let todoElementContainer = document.createElement("div")
-    todoElementContainer.classList.add("label-container", "d-flex", "flex-row");
+    todoElementContainer.classList.add("label-container", "d-flex", "flex-row","shadow");
     todoElement.appendChild(todoElementContainer);
 
     let labelElement = document.createElement("label");
@@ -99,7 +99,7 @@ function createTodoItem(todo){
     todoElementContainer.appendChild(deletIconContainer);
 
     let deletIconEl = document.createElement("i");
-    deletIconEl.classList.add("far", "fa-trash-alt", "delete-icon");
+    deletIconEl.classList.add("far", "fa-trash-alt", "delete-icon","shadow");
     deletIconEl.onclick = function () {
         onDeleteElement("todo" + todo.uniqueNo);
     }
