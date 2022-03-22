@@ -3,10 +3,11 @@
 .todos-bg-container {
   background-color:#EFFFFD ;
   height: 100vh;
+  font-family: poppins,sans-serif;
 }
 .todos-heading {
   text-align: center;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif.
+  font-family:
   font-size: 46px;
   font-weight: 500;
   margin-top: 10px;
@@ -76,19 +77,16 @@
   font-size: 18px;
   border-width: 0px;
   border-radius: 16px;
-  margin-top: 20px;
-  margin-bottom: 50px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-right: 20px;
-  padding-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 15px 20px;
 }
 .label-container {
   background-color: #e6f6ff;
   width: 50%;
   border-style: solid;
-  border-width: 8px;
-  border-color: #42C2FF;
+  border-width: 6px;
+  border-color: #084594;
   border-right: none;
   border-top: none;
   border-bottom: none;
@@ -122,4 +120,9 @@
 }
 .checked{
   text-decoration: line-through;
+}
+#saveButton{
+  background-color: #084594;
+  color:#fff;
+  font-weight: 700;
 }
