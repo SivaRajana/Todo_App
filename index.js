@@ -13,6 +13,8 @@ let addTaskButtonEl = document.getElementById("addTaskButton");
 addTaskButtonEl.onclick = function (){
     let todoUserInputEl = document.getElementById("todoUserInput");
     let inputGiven = todoUserInputEl.value;
+    let dateEl = document.getElementById("date");
+    let timeEl = document.getElementById("time");
     if (inputGiven === ""){
         alert("Enter Valid Input Buddy!!");
         return;
@@ -21,7 +23,9 @@ addTaskButtonEl.onclick = function (){
     let newTodoItem = {
         text: inputGiven,
         uniqueNo: todoItemsCount + 1,
-        taskStatus: false
+        taskStatus: false,
+        taskDate:dateEl.value,
+        taskTime:timeEl.value,
     }
     createTodoItem(newTodoItem);
     todoList.push(newTodoItem);
@@ -93,6 +97,11 @@ function createTodoItem(todo){
         labelElement.classList.remove("checked");
     }
     todoElementContainer.appendChild(labelElement)
+
+    let dateTimeEl = document.createElement("button");
+    dateTimeEl.classList.add("date-and-time-display","m-2","shadow");
+    dateTimeEl.textContent = todo.taskDate + " " +todo.taskTime;
+    todoElementContainer.appendChild(dateTimeEl);
 
     let deletIconContainer = document.createElement("div");
     deletIconContainer.classList.add("delete-icon-container");

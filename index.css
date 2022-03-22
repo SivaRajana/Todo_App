@@ -7,7 +7,7 @@
 }
 .todos-heading {
   text-align: center;
-  font-family:
+  font-family: "poppins";
   font-size: 46px;
   font-weight: 500;
   margin-top: 10px;
@@ -109,6 +109,14 @@
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 5px;
+}
+.date-and-time-display{
+  border-radius: 16px;
+  font-size:10px;
+  /* display: inline; */
+  width:100px ;
+  border-width: 0px;
+  background-color:#EFFFFD ;
 }
 .delete-icon-container {
   text-align: right;
