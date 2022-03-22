@@ -15,8 +15,8 @@ addTaskButtonEl.onclick = function (){
     let inputGiven = todoUserInputEl.value;
     let dateEl = document.getElementById("date");
     let timeEl = document.getElementById("time");
-    if (inputGiven === ""){
-        alert("Enter Valid Input Buddy!!");
+    if (inputGiven === "" || dateEl.value === "" || timeEl.value === ""){
+        alert("Please enter valid task & time!!");
         return;
     }
     let todoItemsCount = todoList.length;
@@ -30,6 +30,8 @@ addTaskButtonEl.onclick = function (){
     createTodoItem(newTodoItem);
     todoList.push(newTodoItem);
     todoUserInputEl.value = "";
+    dateEl.value = "";
+    timeEl.value = "";
 }
 
 
