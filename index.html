@@ -12,19 +12,33 @@
     <div class="todos-bg-container">
       <div class="container">
         <div class="row">
-          <div class="col-12 pl-5 pr-5">
+          <div class="col-12">
             <h1 class="todos-heading">Todo App</h1>
-            <h1 class="create-task-heading">
-              Create <span class="create-task-heading-subpart">Task</span>
-            </h1>
-            <input type="text" id="todoUserInput" class="todo-user-input shadow" placeholder="Add a Task here"/>
-            <button class="add-todo-button shadow" id="addTaskButton"><i class="fas fa-plus"></i></button>
-            <h1 class="todo-items-heading">
-              My <span class="todo-items-heading-subpart">Tasks</span>
-            </h1>
-            <ul class="todo-items-container" id="todoItemsContainer">
-            </ul>
-            <button class="btn btn-primary mt-3" id="saveButton">Save</button>
+            <div class="add-task-container shadow p-1 pl-5">
+              <h1 class="create-task-heading">
+                Create <span class="create-task-heading-subpart">Task</span>
+              </h1>
+              <input type="text" id="todoUserInput" class="todo-user-input shadow" placeholder="Add a Task here"/>
+              <button class="add-todo-button shadow" id="addTaskButton"><i class="fas fa-plus"></i></button>
+              <div class='date d-flex flex-row mb-3'>
+                <div class='date-box'>
+                  <label for='date' class="create-task-date">Date</label>
+                  <input type='date' name='date' class="todo-user-date">
+                </div>             
+                <div class='time-box ml-3'>
+                <label for='time' class="create-task-date">Time</label>
+                <input type='time' name='time' class="todo-user-date">
+                </div>
+              </div>
+            </div>
+            <div class="shadow add-task-container pl-5 pt-2 pb-2 mt-1 mb-1">
+              <h1 class="todo-items-heading">
+                My <span class="todo-items-heading-subpart">Tasks</span>
+              </h1>
+              <ul class="todo-items-container" id="todoItemsContainer">
+              </ul>
+              <button class="btn btn-primary mt-3" id="saveButton">Save</button>
+            </div>
           </div>
         </div>
       </div>
