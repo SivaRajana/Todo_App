@@ -9,5 +9,5 @@ HTML, CSS, Javascript.
 https://sivarajana.github.io/Todo_App/
 
 #Want to tweak my Code?
-use this link https://codepen.io/sivarajana/pen/abEyMjK to tweak my code.
+use this link https://codepen.io/sivarajana/pen/abEyMjK to tweak my code
 
